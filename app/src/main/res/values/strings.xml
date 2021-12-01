@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">morales_rivera</string>
+    <string name="tvNombre">Nombre:</string>
+    <string name="tvApellido">Apellido:</string>
+    <string name="tvBase">Base:</string>
+    <string name="tvExponente">Exponente:</string>
+    <string name="tvFactorial">Factorial:</string>
+    <string name="tvPotencia">Potencia:</string>
+    <string name="btnSiguiente">Siguiente</string>
+    <string name="btnMostrarResultados">Mostrar Resultados</string>
+
+</resources>
