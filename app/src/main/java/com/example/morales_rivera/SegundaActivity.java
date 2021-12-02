@@ -38,4 +38,6 @@ public class SegundaActivity extends AppCompatActivity {
             Toast.makeText(this, "Rellenar campos obligatorios.", Toast.LENGTH_LONG).show();
         }
     }
+
+
 }

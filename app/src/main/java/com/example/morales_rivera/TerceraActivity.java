@@ -2,7 +2,9 @@ package com.example.morales_rivera;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -35,21 +37,34 @@ public class TerceraActivity extends AppCompatActivity {
         String base = getIntent().getStringExtra("key_base");
         etBase.setText(base);
 
-        //etApellido=findViewById(R.id.et)
+        etApellido=findViewById(R.id.etApellidoTercera);
+        etExponente=findViewById(R.id.etExponenteTercera);
+        etNumero=findViewById(R.id.etNumeroTercera);
 
     }
 
     public void onClickCerrar(View view){
-
-        if(!nombre.matches("") && !base.matches("")){
-            Intent intent=new Intent(this, TerceraActivity.class);
-
-            //Enviar información desde otra activity
-            intent.putExtra("key_nombre", nombre);
-            intent.putExtra("key_base", base);
+        String apellido=etApellido.getText().toString();
+        String exponente=etExponente.getText().toString();
+        String numero=etNumero.getText().toString();
 
 
-            this.startActivity(intent);
+
+        if(!apellido.matches("") && !exponente.matches("") && !numero.matches("")){
+            String[] lista=new String[3];
+            lista[0]=apellido;
+            lista[1]=exponente;
+            lista[2]=numero;
+            // Regresar el item seleccionado.
+
+            Intent intent=new Intent();
+            intent.setData(Uri.parse(apellido));
+            intent.setData(Uri.parse(exponente));
+            intent.setData(Uri.parse(numero));
+
+            setResult(Activity.RESULT_OK, intent);
+
+            finish();
         }else{
             Toast.makeText(this, "Rellenar campos obligatorios.", Toast.LENGTH_LONG).show();
         }

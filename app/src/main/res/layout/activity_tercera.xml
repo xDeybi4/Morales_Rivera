@@ -70,7 +70,7 @@
         android:text="@string/tvNumero" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName7"
+        android:id="@+id/etNumeroTercera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -81,5 +81,6 @@
         android:id="@+id/button5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onClickCerrar"
         android:text="@string/btn_Cerrar" />
 </LinearLayout>
