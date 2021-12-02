@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -22,6 +23,8 @@ public class SegundaActivity extends AppCompatActivity {
 
 
     private int codigoRequerido=1;
+
+    private Button btnCerrar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +32,11 @@ public class SegundaActivity extends AppCompatActivity {
 
         this.etNombre=findViewById(R.id.etNombre);
         this.etBase=findViewById(R.id.etBase);
+
+        btnCerrar=findViewById(R.id.btnCerrarSegunda);
+
+        btnCerrar.setEnabled(false);
+
     }
 
     public void onClickSiguiente(View view){
@@ -43,7 +51,7 @@ public class SegundaActivity extends AppCompatActivity {
             intent.putExtra("key_base", base);
 
 
-            this.startActivity(intent);
+            startActivityForResult(intent, codigoRequerido);
         }else{
             Toast.makeText(this, "Rellenar campos obligatorios.", Toast.LENGTH_LONG).show();
         }
@@ -75,7 +83,6 @@ public class SegundaActivity extends AppCompatActivity {
 
         //Obtener los datos regresados desde la ventana hija.
 
-        if (requestCode == codigoRequerido && resultCode == RESULT_OK) {
             String informacion;
             informacion=data.getDataString();
             String[] datos=informacion.split(",");
@@ -84,6 +91,12 @@ public class SegundaActivity extends AppCompatActivity {
             exponente=datos[1];
             numero=datos[2];
 
-        }
+        btnCerrar.setEnabled(true);
+
+        etNombre.setEnabled(false);
+        etBase.setEnabled(false);
+
     }
+
+
 }

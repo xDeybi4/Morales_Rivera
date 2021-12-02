@@ -89,6 +89,7 @@
         android:id="@+id/btnMostrarResultados"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onClickMostrarResultados"
         android:text="@string/btnMostrarResultados" />
 
 </LinearLayout>

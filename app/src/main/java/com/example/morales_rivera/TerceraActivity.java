@@ -41,6 +41,9 @@ public class TerceraActivity extends AppCompatActivity {
         etExponente=findViewById(R.id.etExponenteTercera);
         etNumero=findViewById(R.id.etNumeroTercera);
 
+        etNombre.setEnabled(false);
+        etBase.setEnabled(false);
+
     }
 
     public void onClickCerrar(View view){
