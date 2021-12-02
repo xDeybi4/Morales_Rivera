@@ -8,5 +8,12 @@
     <string name="tvPotencia">Potencia:</string>
     <string name="btnSiguiente">Siguiente</string>
     <string name="btnMostrarResultados">Mostrar Resultados</string>
+    <string name="et_hint_Nombre">Ingresar Nombre</string>
+    <string name="et_hint_Base">Ingresar Base</string>
+    <string name="btn_Cerrar">Cerrar</string>
+    <string name="tvNumero">Número (Factorial):</string>
+    <string name="et_hint_Apellido">Ingresar Apellido</string>
+    <string name="et_hint_Exponente">Ingresar Exponente</string>
+    <string name="et_hint_Factorial">Ingresar Número (Factorial)</string>
 
 </resources>
