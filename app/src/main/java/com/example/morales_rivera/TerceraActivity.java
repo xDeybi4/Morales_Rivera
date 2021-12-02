@@ -51,16 +51,11 @@ public class TerceraActivity extends AppCompatActivity {
 
 
         if(!apellido.matches("") && !exponente.matches("") && !numero.matches("")){
-            String[] lista=new String[3];
-            lista[0]=apellido;
-            lista[1]=exponente;
-            lista[2]=numero;
             // Regresar el item seleccionado.
 
             Intent intent=new Intent();
-            intent.setData(Uri.parse(apellido));
-            intent.setData(Uri.parse(exponente));
-            intent.setData(Uri.parse(numero));
+            intent.setData(Uri.parse(apellido+","+exponente+","+numero));
+
 
             setResult(Activity.RESULT_OK, intent);
 

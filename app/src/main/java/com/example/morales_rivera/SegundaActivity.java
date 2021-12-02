@@ -1,8 +1,11 @@
 package com.example.morales_rivera;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -12,6 +15,13 @@ public class SegundaActivity extends AppCompatActivity {
 
     private EditText etNombre;
     private EditText etBase;
+
+    private String apellido;
+    private String exponente;
+    private String numero;
+
+
+    private int codigoRequerido=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,5 +49,41 @@ public class SegundaActivity extends AppCompatActivity {
         }
     }
 
+    public void onClickCerrar(View view){
+        String nombre=etNombre.getText().toString();
+        String base=etBase.getText().toString();
 
+
+        if(!nombre.matches("") && !base.matches("")){
+
+            Intent intent=new Intent();
+            intent.setData(Uri.parse(nombre+"," + apellido+","+exponente+","+numero));
+
+
+            setResult(Activity.RESULT_OK, intent);
+
+            finish();
+        }else{
+            Toast.makeText(this, "Rellenar campos obligatorios.", Toast.LENGTH_LONG).show();
+        }
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        //Obtener los datos regresados desde la ventana hija.
+
+        if (requestCode == codigoRequerido && resultCode == RESULT_OK) {
+            String informacion;
+            informacion=data.getDataString();
+            String[] datos=informacion.split(",");
+
+            apellido=datos[0];
+            exponente=datos[1];
+            numero=datos[2];
+
+        }
+    }
 }
