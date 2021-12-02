@@ -57,7 +57,7 @@ public class SegundaActivity extends AppCompatActivity {
         if(!nombre.matches("") && !base.matches("")){
 
             Intent intent=new Intent();
-            intent.setData(Uri.parse(nombre+"," + apellido+","+exponente+","+numero));
+            intent.setData(Uri.parse(nombre+"," + apellido+","+base+","+exponente+","+numero));
 
 
             setResult(Activity.RESULT_OK, intent);
